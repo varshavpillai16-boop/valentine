@@ -3,88 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Letter</title>
+<title>My Letter to You</title>
 
 <style>
 body{
-  margin:0;
-  background:linear-gradient(#fff0f6,#fff);
-  font-family:'Segoe UI',sans-serif;
-  color:#6b2c3f;
+    margin:0;
+    background:linear-gradient(180deg,#fff0f6,#ffffff);
+    font-family:'Segoe UI',sans-serif;
+    color:#6b2c3f;
 }
 
 .container{
-  padding:40px 20px;
-  display:flex;
-  justify-content:center;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
 }
 
 .card{
-  background:white;
-  max-width:420px;
-  padding:35px;
-  border-radius:25px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    background:white;
+    max-width:420px;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
 }
 
-.music-bar{
-  position:fixed;
-  top:12px;
-  right:12px;
-}
-
-.music-bar button{
-  background:#ffd6e7;
-  border:none;
-  padding:10px 14px;
-  border-radius:20px;
+button{
+    margin-top:20px;
+    padding:12px 26px;
+    border:none;
+    border-radius:25px;
+    background:#ff5c8a;
+    color:white;
+    cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="music-bar">
-  <button onclick="toggleMusic()">🎵 Our Song</button>
-  <audio id="bg-music" src="song.mp3" loop></audio>
-</div>
-
 <div class="container">
 <div class="card">
+
 <p><strong>My love,</strong></p>
 
-<p>I love you with all my heart…</p>
-<p>I promise I’m trying. I promise I’ll keep choosing you.</p>
+<p>I love you with all my heart… I promise I’m trying. I promise I’ll keep choosing you.</p>
+
 <p>I’ll walk with you through every struggle.</p>
 
 <p>Today, tomorrow, and forever.</p>
 
 <p>— Yours 🫂</p>
+
+<button onclick="playMusic()">Play our song 🎶</button>
+
 </div>
 </div>
+
+<iframe id="music" width="0" height="0"
+src=""
+allow="autoplay">
+</iframe>
 
 <script>
-const music = document.getElementById("bg-music");
-
-window.onload = () => {
-  const t = localStorage.getItem("musicTime");
-  const p = localStorage.getItem("musicPlaying");
-  if(t) music.currentTime = t;
-  if(p === "true") music.play();
-};
-
-music.addEventListener("timeupdate", () => {
-  localStorage.setItem("musicTime", music.currentTime);
-});
-
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-    localStorage.setItem("musicPlaying","true");
-  }else{
-    music.pause();
-    localStorage.setItem("musicPlaying","false");
-  }
+function playMusic(){
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
 }
 </script>
 
