@@ -3,129 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Letter to You</title>
+<title>My Letter</title>
 
 <style>
 body{
-    margin:0;
-    padding:0;
-    background:linear-gradient(180deg,#fff0f6,#ffffff);
-    font-family:'Segoe UI',sans-serif;
-    color:#6b2c3f;
+  margin:0;
+  background:linear-gradient(#fff0f6,#fff);
+  font-family:'Segoe UI',sans-serif;
+  color:#6b2c3f;
 }
 
 .container{
-    display:flex;
-    justify-content:center;
-    padding:40px 20px;
+  padding:40px 20px;
+  display:flex;
+  justify-content:center;
 }
 
 .card{
-    background:white;
-    max-width:420px;
-    padding:35px;
-    border-radius:25px;
-    box-shadow:0 12px 30px rgba(0,0,0,0.12);
-    animation:fadeUp 2s ease;
+  background:white;
+  max-width:420px;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.music-bar{
+  position:fixed;
+  top:12px;
+  right:12px;
 }
 
-h2{
-    color:#c9184a;
-    margin-bottom:20px;
-}
-
-p{
-    font-size:15.5px;
-    line-height:1.75;
-    margin-bottom:14px;
-}
-
-.signature{
-    margin-top:25px;
-}
-
-button{
-    margin-top:20px;
-    padding:12px 26px;
-    border:none;
-    border-radius:25px;
-    background:#ff5c8a;
-    color:white;
-    font-size:14px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#e64875;
-}
-
-.center{
-    text-align:center;
+.music-bar button{
+  background:#ffd6e7;
+  border:none;
+  padding:10px 14px;
+  border-radius:20px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="music-bar">
+  <button onclick="toggleMusic()">🎵 Our Song</button>
+  <audio id="bg-music" src="song.mp3" loop></audio>
+</div>
+
 <div class="container">
 <div class="card">
+<p><strong>My love,</strong></p>
 
-<h2>My love,</h2>
+<p>I love you with all my heart…</p>
+<p>I promise I’m trying. I promise I’ll keep choosing you.</p>
+<p>I’ll walk with you through every struggle.</p>
 
-<p>
-I love you with all my heart. I know things are sometimes messy. We couldn’t handle some problems, and sometimes you struggle with my moods and emotions. I know it hasn’t been easy, and I want you to know that I’m still in my healing phase — and I’m really, truly trying.
-</p>
+<p>Today, tomorrow, and forever.</p>
 
-<p>
-I promise I will keep trying, every day, to make you happy. I hope I bring you the same happiness and peace that you bring into my life.
-</p>
-
-<p>
-I want to see you achieve every dream you carry in your heart and be truly happy. Even if I may not always walk beside you in your successes, I promise to walk with you through every struggle. I will be your strength, just as you have been mine.
-</p>
-
-<p>
-Thank you for being my biggest supporter, for standing by me, and for making me feel loved and happy. I wish that next year, on Valentine’s Day, we are much closer to our dreams and our goals.
-</p>
-
-<p>
-I love you — today, tomorrow, and forever. I hope you know how deeply I love you.
-</p>
-
-<p class="signature">
-To my boy,<br>
-I love you.<br>
-Happy Valentine’s Day 🫂🫂🫂
-</p>
-
-<div class="center">
-<button onclick="playMusic()">Play music 🎶</button>
-</div>
-
+<p>— Yours 🫂</p>
 </div>
 </div>
-
-<!-- Kabira instrumental -->
-<iframe id="music" width="0" height="0"
-src=""
-allow="autoplay">
-</iframe>
 
 <script>
-function playMusic(){
-    document.getElementById("music").src =
-    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+const music = document.getElementById("bg-music");
+
+window.onload = () => {
+  const t = localStorage.getItem("musicTime");
+  const p = localStorage.getItem("musicPlaying");
+  if(t) music.currentTime = t;
+  if(p === "true") music.play();
+};
+
+music.addEventListener("timeupdate", () => {
+  localStorage.setItem("musicTime", music.currentTime);
+});
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    localStorage.setItem("musicPlaying","true");
+  }else{
+    music.pause();
+    localStorage.setItem("musicPlaying","false");
+  }
 }
 </script>
 
