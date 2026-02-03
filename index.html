@@ -7,101 +7,76 @@
 
 <style>
 body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(#ffe3ed,#fff);
-  font-family:'Segoe UI',sans-serif;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#ffe3ed,#fff);
+    font-family:'Segoe UI',sans-serif;
 }
 
 .card{
-  background:white;
-  padding:40px 30px;
-  border-radius:25px;
-  text-align:center;
-  max-width:380px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.12);
-  animation:fade 2s ease;
+    background:white;
+    padding:45px 35px;
+    border-radius:25px;
+    text-align:center;
+    max-width:380px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    animation:fadeUp 2.2s ease;
 }
 
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1;}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-button.main{
-  margin-top:25px;
-  padding:14px 30px;
-  border:none;
-  border-radius:30px;
-  background:#ff5c8a;
-  color:white;
-  font-size:15px;
-  cursor:pointer;
+h1{ color:#c9184a; }
+
+p{
+    color:#6b2c3f;
+    font-size:16px;
+    line-height:1.7;
 }
 
-.music-bar{
-  position:fixed;
-  top:12px;
-  right:12px;
-  z-index:999;
-}
-
-.music-bar button{
-  background:#ffd6e7;
-  border:none;
-  padding:10px 14px;
-  border-radius:20px;
-  font-size:14px;
-  cursor:pointer;
+button{
+    margin-top:30px;
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    background:#ff5c8a;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="music-bar">
-  <button onclick="toggleMusic()">🎵 Our Song</button>
-  <audio id="bg-music" src="song.mp3" loop></audio>
-</div>
-
 <div class="card">
-  <h2>To my favourite person<br>in the whole world 💗</h2>
-  <p>To my home, to my love — this is for you 😌</p>
+    <h1>To my favourite person<br>in the whole world 💗</h1>
 
-  <button class="main" onclick="goNext()">Open with blue love 💙</button>
+    <p>
+        To my home,  
+        to my love —  
+        this is for you 😌
+    </p>
+
+    <button onclick="start()">Open with blue love 💙</button>
 </div>
+
+<!-- SONG -->
+<iframe id="music" width="0" height="0"
+src=""
+allow="autoplay">
+</iframe>
 
 <script>
-const music = document.getElementById("bg-music");
-
-window.onload = () => {
-  const t = localStorage.getItem("musicTime");
-  const p = localStorage.getItem("musicPlaying");
-  if(t) music.currentTime = t;
-  if(p === "true") music.play();
-};
-
-music.addEventListener("timeupdate", () => {
-  localStorage.setItem("musicTime", music.currentTime);
-});
-
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-    localStorage.setItem("musicPlaying","true");
-  }else{
-    music.pause();
-    localStorage.setItem("musicPlaying","false");
-  }
-}
-
-function goNext(){
-  music.play();
-  localStorage.setItem("musicPlaying","true");
-  window.location.href="letter.html";
+function start(){
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+    window.location.href="letter.html";
 }
 </script>
 
