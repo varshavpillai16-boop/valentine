@@ -3,149 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us, always</title>
+<title>Us, Always</title>
 
 <style>
 body{
-    margin:0;
-    background:linear-gradient(180deg,#fff0f6,#ffffff);
-    font-family:'Segoe UI',sans-serif;
-    color:#6b2c3f;
+  margin:0;
+  background:linear-gradient(#fff0f6,#fff);
+  font-family:'Segoe UI',sans-serif;
+}
+
+.music-bar{
+  position:fixed;
+  top:12px;
+  right:12px;
+}
+
+.music-bar button{
+  background:#ffd6e7;
+  border:none;
+  padding:10px 14px;
+  border-radius:20px;
 }
 
 .container{
-    padding:30px 15px;
-    text-align:center;
-}
-
-h2{
-    color:#c9184a;
-    margin-bottom:25px;
+  padding:80px 15px 30px;
+  text-align:center;
 }
 
 .gallery{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    max-width:420px;
-    margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  max-width:420px;
+  margin:auto;
 }
 
-.photo-card{
-    background:white;
-    padding:10px;
-    border-radius:18px;
-    box-shadow:0 8px 18px rgba(0,0,0,0.12);
-    animation:fadeUp 1.8s ease;
-}
-
-.photo-card img{
-    width:100%;
-    border-radius:14px;
-}
-
-.caption{
-    font-size:13px;
-    margin-top:6px;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.footer-text{
-    margin-top:30px;
-    font-size:14px;
-    font-style:italic;
-}
-
-.music-btn{
-    margin-top:25px;
-}
-
-.music-btn button{
-    padding:12px 26px;
-    border:none;
-    border-radius:25px;
-    background:#ff5c8a;
-    color:white;
-    font-size:14px;
-    cursor:pointer;
-}
-
-.music-btn button:hover{
-    background:#e64875;
+.gallery img{
+  width:100%;
+  border-radius:16px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>Us, always 🤍</h2>
-
-    <div class="gallery">
-
-        <div class="photo-card">
-            <img src="photo1.jpg">
-            <div class="caption">One moment, forever remembered</div>
-        </div>
-
-        <div class="photo-card">
-            <img src="photo2.jpg">
-            <div class="caption">Where smiles found their way</div>
-        </div>
-
-        <div class="photo-card">
-            <img src="photo3.jpg">
-            <div class="caption">A memory I hold close</div>
-        </div>
-
-        <div class="photo-card">
-            <img src="photo4.jpg">
-            <div class="caption">Us, just being us</div>
-        </div>
-
-        <div class="photo-card">
-            <img src="photo5.jpg">
-            <div class="caption">A little piece of my heart</div>
-        </div>
-
-        <div class="photo-card">
-            <img src="photo6.jpg">
-            <div class="caption">Where love felt easy</div>
-        </div>
-
-    </div>
-
-    <div class="footer-text">
-        Us, through years — and into a lifetime.
-    </div>
-
-    <!-- MUSIC BUTTON -->
-    <div class="music-btn">
-        <button onclick="playMusic()">Continue our song 🎶</button>
-    </div>
-
+<div class="music-bar">
+  <button onclick="toggleMusic()">🎵 Our Song</button>
+  <audio id="bg-music" src="song.mp3" loop></audio>
 </div>
 
-<!-- Hidden music iframe -->
-<iframe id="music" width="0" height="0"
-src=""
-allow="autoplay">
-</iframe>
+<div class="container">
+<h2>Us, always 🤍</h2>
+
+<div class="gallery">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+  <img src="photo4.jpg">
+  <img src="photo5.jpg">
+  <img src="photo6.jpg">
+</div>
+
+<p style="margin-top:25px; font-style:italic;">
+Us, through years — and into a lifetime.
+</p>
+</div>
 
 <script>
-function playMusic(){
-    document.getElementById("music").src =
-    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+const music = document.getElementById("bg-music");
+
+window.onload = () => {
+  const t = localStorage.getItem("musicTime");
+  const p = localStorage.getItem("musicPlaying");
+  if(t) music.currentTime = t;
+  if(p === "true") music.play();
+};
+
+music.addEventListener("timeupdate", () => {
+  localStorage.setItem("musicTime", music.currentTime);
+});
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    localStorage.setItem("musicPlaying","true");
+  }else{
+    music.pause();
+    localStorage.setItem("musicPlaying","false");
+  }
 }
 </script>
 
