@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Always 💙</title>
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(180deg,#fff5f8,#eef6ff);
+  font-family:'Segoe UI',sans-serif;
+  color:#0b3c6f;
+  text-align:center;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  padding:45px 35px;
+  border-radius:30px;
+  max-width:420px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+  animation:fadeUp 2s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+  margin-bottom:20px;
+}
+
+p{
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+
+.final{
+  font-size:22px;
+  font-weight:600;
+  margin-top:30px;
+  color:#3a86ff;
+}
+
+/* music button */
+.music-bar{
+  position:fixed;
+  top:12px;
+  right:12px;
+}
+
+.music-bar button{
+  background:#ffd6e7;
+  border:none;
+  padding:10px 14px;
+  border-radius:20px;
+  font-size:14px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC BUTTON -->
+<div class="music-bar">
+  <button onclick="toggleMusic()">🎵 Our Song</button>
+</div>
+
+<div class="card">
+
+<h2>I knew you’d click yes 😌</h2>
+
+<p>
+I always did.
+</p>
+
+<p>
+So here it is —<br>
+you’re my Valentine.
+</p>
+
+<p>
+Not just for today,<br>
+not just for this moment,<br>
+but for life.
+</p>
+
+<p class="final">
+I love you. Always 💙
+</p>
+
+</div>
+
+<!-- KABIRA FLUTE (AUTO-START) -->
+<audio id="bg-music" autoplay loop>
+  <source src="https://www.youtube.com/embed/5UjHkN0Fj2E" type="audio/mpeg">
+</audio>
+
+<iframe id="yt-music" width="0" height="0"
+src="https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E"
+allow="autoplay">
+</iframe>
+
+<script>
+const musicFrame = document.getElementById("yt-music");
+let playing = true;
+
+function toggleMusic(){
+  if(playing){
+    musicFrame.src = "";
+    playing = false;
+  }else{
+    musicFrame.src =
+    "https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E";
+    playing = true;
+  }
+}
+</script>
+
+</body>
+</html>
