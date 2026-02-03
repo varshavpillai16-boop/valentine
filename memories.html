@@ -3,54 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us, Always</title>
+<title>Us, always</title>
 
 <style>
 body{
-  margin:0;
-  background:linear-gradient(#fff0f6,#fff);
-  font-family:'Segoe UI',sans-serif;
-}
-
-.music-bar{
-  position:fixed;
-  top:12px;
-  right:12px;
-}
-
-.music-bar button{
-  background:#ffd6e7;
-  border:none;
-  padding:10px 14px;
-  border-radius:20px;
+    margin:0;
+    background:linear-gradient(180deg,#fff0f6,#ffffff);
+    font-family:'Segoe UI',sans-serif;
+    color:#6b2c3f;
 }
 
 .container{
-  padding:80px 15px 30px;
-  text-align:center;
+    padding:30px 15px;
+    text-align:center;
 }
 
+h2{ color:#c9184a; }
+
 .gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  max-width:420px;
-  margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    max-width:420px;
+    margin:auto;
 }
 
 .gallery img{
-  width:100%;
-  border-radius:16px;
+    width:100%;
+    border-radius:16px;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 26px;
+    border:none;
+    border-radius:25px;
+    background:#ff5c8a;
+    color:white;
 }
 </style>
 </head>
 
 <body>
-
-<div class="music-bar">
-  <button onclick="toggleMusic()">🎵 Our Song</button>
-  <audio id="bg-music" src="song.mp3" loop></audio>
-</div>
 
 <div class="container">
 <h2>Us, always 🤍</h2>
@@ -64,33 +58,22 @@ body{
   <img src="photo6.jpg">
 </div>
 
-<p style="margin-top:25px; font-style:italic;">
+<p style="margin-top:20px; font-style:italic;">
 Us, through years — and into a lifetime.
 </p>
+
+<button onclick="playMusic()">Continue our song 🎶</button>
 </div>
 
+<iframe id="music" width="0" height="0"
+src=""
+allow="autoplay">
+</iframe>
+
 <script>
-const music = document.getElementById("bg-music");
-
-window.onload = () => {
-  const t = localStorage.getItem("musicTime");
-  const p = localStorage.getItem("musicPlaying");
-  if(t) music.currentTime = t;
-  if(p === "true") music.play();
-};
-
-music.addEventListener("timeupdate", () => {
-  localStorage.setItem("musicTime", music.currentTime);
-});
-
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-    localStorage.setItem("musicPlaying","true");
-  }else{
-    music.pause();
-    localStorage.setItem("musicPlaying","false");
-  }
+function playMusic(){
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
 }
 </script>
 
