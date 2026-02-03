@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Us, always</title>
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(180deg,#fff0f6,#ffffff);
+    font-family:'Segoe UI',sans-serif;
+    color:#6b2c3f;
+}
+
+.container{
+    padding:30px 15px;
+    text-align:center;
+}
+
+h2{
+    color:#c9184a;
+    margin-bottom:25px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    max-width:420px;
+    margin:auto;
+}
+
+.photo-card{
+    background:white;
+    padding:10px;
+    border-radius:18px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+    animation:fadeUp 1.8s ease;
+}
+
+.photo-card img{
+    width:100%;
+    border-radius:14px;
+}
+
+.caption{
+    font-size:13px;
+    margin-top:6px;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.footer-text{
+    margin-top:30px;
+    font-size:14px;
+    font-style:italic;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Us, always 🤍</h2>
+
+    <div class="gallery">
+        <div class="photo-card">
+            <img src="photo1.jpg">
+            <div class="caption">One moment, forever remembered</div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo2.jpg">
+            <div class="caption">Where smiles found their way</div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo3.jpg">
+            <div class="caption">A memory I hold close</div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo4.jpg">
+            <div class="caption">Us, just being us</div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo5.jpg">
+            <div class="caption">A little piece of my heart</div>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo6.jpg">
+            <div class="caption">Where love felt easy</div>
+        </div>
+    </div>
+
+    <div class="footer-text">
+        Us, through years — and into a lifetime.
+    </div>
+</div>
+
+</body>
+</html>
