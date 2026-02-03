@@ -33,24 +33,6 @@ body{
   to{opacity:1; transform:translateY(0);}
 }
 
-h2{
-  margin-bottom:20px;
-}
-
-p{
-  font-size:16px;
-  line-height:1.8;
-  margin-bottom:18px;
-}
-
-.final{
-  font-size:22px;
-  font-weight:600;
-  margin-top:30px;
-  color:#3a86ff;
-}
-
-/* music button */
 .music-bar{
   position:fixed;
   top:12px;
@@ -65,6 +47,13 @@ p{
   font-size:14px;
   cursor:pointer;
 }
+
+.final{
+  font-size:22px;
+  font-weight:600;
+  margin-top:30px;
+  color:#3a86ff;
+}
 </style>
 </head>
 
@@ -72,25 +61,19 @@ p{
 
 <!-- MUSIC BUTTON -->
 <div class="music-bar">
-  <button onclick="toggleMusic()">🎵 Our Song</button>
+  <button onclick="playMusic()">🎵 Our Song</button>
 </div>
 
 <div class="card">
 
 <h2>I knew you’d click yes 😌</h2>
 
-<p>
-I always did.
-</p>
+<p>I always did.</p>
 
 <p>
 So here it is —<br>
-you’re my Valentine.
-</p>
-
-<p>
+you’re my Valentine.<br>
 Not just for today,<br>
-not just for this moment,<br>
 but for life.
 </p>
 
@@ -100,29 +83,16 @@ I love you. Always 💙
 
 </div>
 
-<!-- KABIRA FLUTE (AUTO-START) -->
-<audio id="bg-music" autoplay loop>
-  <source src="https://www.youtube.com/embed/5UjHkN0Fj2E" type="audio/mpeg">
-</audio>
-
-<iframe id="yt-music" width="0" height="0"
-src="https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E"
+<!-- MUSIC -->
+<iframe id="music" width="0" height="0"
+src=""
 allow="autoplay">
 </iframe>
 
 <script>
-const musicFrame = document.getElementById("yt-music");
-let playing = true;
-
-function toggleMusic(){
-  if(playing){
-    musicFrame.src = "";
-    playing = false;
-  }else{
-    musicFrame.src =
-    "https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E";
-    playing = true;
-  }
+function playMusic(){
+  document.getElementById("music").src =
+  "https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E";
 }
 </script>
 
