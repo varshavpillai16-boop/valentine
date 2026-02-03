@@ -65,6 +65,24 @@ h2{
     font-size:14px;
     font-style:italic;
 }
+
+.music-btn{
+    margin-top:25px;
+}
+
+.music-btn button{
+    padding:12px 26px;
+    border:none;
+    border-radius:25px;
+    background:#ff5c8a;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.music-btn button:hover{
+    background:#e64875;
+}
 </style>
 </head>
 
@@ -74,6 +92,7 @@ h2{
     <h2>Us, always 🤍</h2>
 
     <div class="gallery">
+
         <div class="photo-card">
             <img src="photo1.jpg">
             <div class="caption">One moment, forever remembered</div>
@@ -103,12 +122,32 @@ h2{
             <img src="photo6.jpg">
             <div class="caption">Where love felt easy</div>
         </div>
+
     </div>
 
     <div class="footer-text">
         Us, through years — and into a lifetime.
     </div>
+
+    <!-- MUSIC BUTTON -->
+    <div class="music-btn">
+        <button onclick="playMusic()">Continue our song 🎶</button>
+    </div>
+
 </div>
+
+<!-- Hidden music iframe -->
+<iframe id="music" width="0" height="0"
+src=""
+allow="autoplay">
+</iframe>
+
+<script>
+function playMusic(){
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+}
+</script>
 
 </body>
 </html>
