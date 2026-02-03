@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#fff0f6,#ffffff);
+    font-family:'Segoe UI',sans-serif;
+    color:#6b2c3f;
+}
+
+.card{
+    background:white;
+    padding:45px 35px;
+    border-radius:28px;
+    text-align:center;
+    max-width:420px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    animation:fadeUp 2s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(25px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+    color:#c9184a;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.75;
+    margin-bottom:18px;
+}
+
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-top:25px;
+    color:#c9184a;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 26px;
+    border:none;
+    border-radius:25px;
+    background:#ff5c8a;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>My love,</h2>
+
+<p>
+No matter what happens,  
+no matter where life takes us,  
+I want you to know one thing.
+</p>
+
+<p>
+I choose you — in every version of life.  
+In happiness and in struggle.  
+In silence and in laughter.
+</p>
+
+<p>
+I’m grateful for you —  
+for being my best friend,  
+my safe place,  
+my partner.
+</p>
+
+<p class="question">
+So, my love…  
+will you be my Valentine —  
+today, tomorrow, and for every lifetime?
+</p>
+
+<p>
+Happy Valentine’s Day 🤍
+</p>
+
+<p style="
+    font-size:22px;
+    font-weight:600;
+    margin-top:25px;
+    color:#3a86ff;">
+    I love you, always 💙
+</p>
+
+<button onclick="playMusic()">Play our song 🎶</button>
+
+</div>
+
+<!-- SONG -->
+<iframe id="music" width="0" height="0"
+src=""
+allow="autoplay">
+</iframe>
+
+<script>
+function playMusic(){
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+}
+</script>
+
+</body>
+</html>
