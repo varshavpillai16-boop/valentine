@@ -50,15 +50,33 @@ p{
     color:#c9184a;
 }
 
+.buttons{
+    margin-top:25px;
+}
+
 button{
-    margin-top:30px;
     padding:12px 26px;
     border:none;
     border-radius:25px;
-    background:#ff5c8a;
-    color:white;
     font-size:14px;
     cursor:pointer;
+    margin:10px;
+}
+
+.yes{
+    background:#3a86ff;
+    color:white;
+}
+
+.no{
+    background:#ffd6e0;
+    color:#6b2c3f;
+}
+
+.small{
+    margin-top:20px;
+    font-size:14px;
+    color:#888;
 }
 </style>
 </head>
@@ -94,23 +112,18 @@ will you be my Valentine —
 today, tomorrow, and for every lifetime?
 </p>
 
-<p>
-Happy Valentine’s Day 🤍
-</p>
+<div class="buttons">
+    <button class="yes" onclick="goYes()">Yes 💙</button>
+    <button class="no" onclick="sayNo()">No 🙂</button>
+</div>
 
-<p style="
-    font-size:22px;
-    font-weight:600;
-    margin-top:25px;
-    color:#3a86ff;">
-    I love you, always 💙
-</p>
+<p id="response" class="small"></p>
 
 <button onclick="playMusic()">Play our song 🎶</button>
 
 </div>
 
-<!-- SONG -->
+<!-- KABIRA FLUTE -->
 <iframe id="music" width="0" height="0"
 src=""
 allow="autoplay">
@@ -119,7 +132,20 @@ allow="autoplay">
 <script>
 function playMusic(){
     document.getElementById("music").src =
-    "https://www.youtube.com/embed/jHNNMj5bNQw?autoplay=1&loop=1&playlist=jHNNMj5bNQw";
+    "https://www.youtube.com/embed/5UjHkN0Fj2E?autoplay=1&loop=1&playlist=5UjHkN0Fj2E";
+}
+
+function goYes(){
+    playMusic();
+    setTimeout(()=>{
+        window.location.href = "yes.html";
+    },800);
+}
+
+function sayNo(){
+    playMusic();
+    document.getElementById("response").innerText =
+    "Hmm… don’t even try 😌";
 }
 </script>
 
